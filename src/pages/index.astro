@@ -1,0 +1,47 @@
+---
+import QueueButton from "@components/QueueButton.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<div class="container">
+			<img
+				alt="PvP Legacy logo"
+				class=""
+				src="https://imagedelivery.net/UntdIRhVcqwJ5qM8cvSL6w/ac566ab9-a965-415e-69ef-3ac6d2d9e600/icon"
+			/>
+
+			<div class="wrapper">
+				<div class="button-container">
+					<QueueButton text="Queue for 2v2" />
+					<QueueButton text="Queue for 3v3" />
+					<QueueButton text="Queue for 5v5" />
+				</div>
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<style is:inline>
+	.container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 40em;
+		height: 40em;
+	}
+
+	.wrapper {
+		max-width: 20em;
+		width: 100vw;
+	}
+
+	.button-container {
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 1em;
+	}
+</style>

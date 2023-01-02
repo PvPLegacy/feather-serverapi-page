@@ -1,0 +1,28 @@
+---
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+	</head>
+	<body>
+		<div id="main">
+			<slot />
+		</div>
+	</body>
+</html>
+<style is:inline>
+	#main {
+		background: url(https://pvplegacy.net/img/heroes/hero1.webp);
+		background-size: cover;
+		width: 40em;
+		height: 40em;
+	}
+</style>
