@@ -1,7 +1,5 @@
 ---
-const { text } = Astro.props;
-
-const id = Math.random().toString(36).substr(2, 9);
+const { text, id } = Astro.props;
 ---
 
 <button id={id}>
@@ -10,6 +8,6 @@ const id = Math.random().toString(36).substr(2, 9);
 
 <script is:inline define:vars={{ id: id }}>
     document.getElementById(id)?.addEventListener("click", () => {
-        fetch("../banana");
+        fetch(`../${id}`);
     });
 </script>

@@ -1,6 +1,8 @@
 ---
 import QueueButton from "@components/QueueButton.astro";
 import Layout from "../layouts/Layout.astro";
+
+const list: Array<string> = ["2v2", "3v3", "5v5"];
 ---
 
 <Layout title="Welcome to Astro.">
@@ -14,9 +16,11 @@ import Layout from "../layouts/Layout.astro";
 
 			<div class="wrapper">
 				<div class="button-container">
-					<QueueButton text="Queue for 2v2" />
-					<QueueButton text="Queue for 3v3" />
-					<QueueButton text="Queue for 5v5" />
+					{
+						list.map((item, i) => (
+							<QueueButton text={`Queue for ${item}`} id={i} />
+						))
+					}
 				</div>
 			</div>
 		</div>
