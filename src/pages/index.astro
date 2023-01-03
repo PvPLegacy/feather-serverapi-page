@@ -8,19 +8,31 @@ const list: Array<string> = ["2v2", "3v3", "5v5"];
 <Layout title="Welcome to Astro.">
 	<main>
 		<div class="container">
-			<img
-				alt="PvP Legacy logo"
-				class=""
-				src="https://imagedelivery.net/UntdIRhVcqwJ5qM8cvSL6w/ac566ab9-a965-415e-69ef-3ac6d2d9e600/icon"
-			/>
+			<div class="container-container">
+				<div
+					class="header"
+					onclick="window.open('https\:\/\/pvplegacy.net');"
+				>
+					<img
+						width="200"
+						height="200"
+						alt="PvP Legacy logo"
+						src="https://imagedelivery.net/UntdIRhVcqwJ5qM8cvSL6w/ac566ab9-a965-415e-69ef-3ac6d2d9e600/icon"
+					/>
+				</div>
+				<h2>Queue Into A Game</h2>
 
-			<div class="wrapper">
-				<div class="button-container">
-					{
-						list.map((item, i) => (
-							<QueueButton text={`Queue for ${item}`} id={i} />
-						))
-					}
+				<div class="wrapper">
+					<div class="button-container">
+						{
+							list.map((item, i) => (
+								<QueueButton
+									text={`Queue for ${item}`}
+									id={i}
+								/>
+							))
+						}
+					</div>
 				</div>
 			</div>
 		</div>
@@ -28,24 +40,75 @@ const list: Array<string> = ["2v2", "3v3", "5v5"];
 </Layout>
 
 <style is:inline>
+	main,
 	.container {
+		height: 100%;
+		background: #fff;
+	}
+
+	.header {
+		padding: 0 20%;
+		position: relative;
+		border-radius: 20px;
+		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.4);
+		overflow: hidden;
+	}
+
+	.header::before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		transition: all 0.5s ease-in-out;
+		background: url(https://pvplegacy.net/img/heroes/hero1.webp);
+		background-position: 50% 50%;
+		background-size: 250%;
+	}
+
+	.header:hover::before {
+		background-position: 52% 52%;
+		filter: blur(5px) contrast(0.5);
+		cursor: pointer;
+	}
+
+	.container,
+	.wrapper,
+	.header {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		width: 40em;
-		height: 40em;
+	}
+
+	.container-container {
+		display: contents;
 	}
 
 	.wrapper {
-		max-width: 20em;
-		width: 100vw;
+		justify-content: start;
+		width: 100%;
+		flex-grow: 1;
 	}
 
 	.button-container {
+		max-width: 20em;
 		width: 100%;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		grid-gap: 1em;
+		grid-gap: 10px;
+	}
+
+	img {
+		z-index: 1;
+		width: 200px;
+		height: 170px;
+		object-fit: cover;
+		user-select: none;
+		pointer-events: none;
+	}
+
+	h2 {
+		margin: 10px;
+		font-family: Arial, Helvetica, sans-serif;
 	}
 </style>

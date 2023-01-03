@@ -2,7 +2,7 @@
 const { text, id } = Astro.props;
 ---
 
-<button id={id}>
+<button class="btn" id={id}>
     {text}
 </button>
 
@@ -11,3 +11,22 @@ const { text, id } = Astro.props;
         fetch(`../${id}`);
     });
 </script>
+
+<style is:inline>
+    button {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 10px;
+        background-color: #00aeec;
+        color: #000;
+        font-size: 1em;
+        cursor: pointer;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+        transition: all 0.1s ease-in-out;
+    }
+
+    button:hover {
+        background: #01769f;
+        box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.3);
+    }
+</style>
